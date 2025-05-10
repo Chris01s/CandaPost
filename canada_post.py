@@ -22,12 +22,14 @@ json_response = json.loads(response)
 
 events = json_response['events']
 
-for event in events:
-    description = event['descEn']
-    datetime = event['datetime']
-    date = datetime['date']
-    time = datetime['time']
-    print(date,time,":",description)
+with open("status1.txt", "w") as FILE:
+	for event in events:
+	    description = event['descEn']
+	    datetime = event['datetime']
+	    date = datetime['date']
+	    time = datetime['time']
+	    print(date,time,":",description)
+	    FILE.write(date+"T"+time+": "+description+"\n")
 
 new_update_available = os.popen("diff status1.txt status.txt")
 
