@@ -35,7 +35,7 @@ new_update_available = os.popen("diff status1.txt status.txt")
 latest_update = events[0]['datetime']['date'] + "T" + events[0]['datetime']['time'] + ": " + events[0]['descEn']
 
 if new_update_available:
-	os.system(f'termux-notification -t {latest_update}')
+	os.system(f'termux-notification -t "{latest_update}"')
 	#print(latest_update)
 	os.system(f"cat status1.txt > status.txt")
 
