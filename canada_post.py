@@ -2,6 +2,7 @@
 import json
 import sys
 import os
+import time
 
 
 headers = {
@@ -36,3 +37,5 @@ if new_update_available:
 	#os.system(f'termux-notification -t {latest_update}')
 	print(latest_update)
 	os.system(f"cat status1.txt > status.txt")
+time.sleep(5)
+os.system("date > run_status.txt")
